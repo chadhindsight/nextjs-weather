@@ -13,7 +13,18 @@ export default function Home() {
         backgroundImage: "url('https://littlevisuals.co/images/atlantic_ridge.jpg')"
       }}
     >
-      <Paper withBorder p="lg" style={{ maxWidth: '400px' }}></Paper>
+      <div className='middle-block'
+        style={{
+          position: "absolute",
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)"
+        }}
+      >
+        <Paper withBorder p="lg" style={{
+          maxWidth: "500px"
+        }}></Paper>
+      </div>
     </div >
   )
 }
