@@ -7,6 +7,10 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <div></div>
+    <div style={{
+      position: "static",
+      height: "100vh",
+      backgroundImage: "url('https://littlevisuals.co/images/atlantic_ridge.jpg')"
+    }}></div>
   )
 }
