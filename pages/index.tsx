@@ -13,7 +13,7 @@ export default function Home() {
         backgroundImage: "url('https://littlevisuals.co/images/atlantic_ridge.jpg')"
       }}
     >
-      <div className='middle-block'
+      <div
         style={{
           position: "absolute",
           left: "50%",
