@@ -9,7 +9,7 @@ export default function Home() {
     <div
       style={{
         position: "static",
-        height: "100vh",
+        height: "90vh",
         backgroundImage: "url('https://littlevisuals.co/images/atlantic_ridge.jpg')"
       }}
     >
