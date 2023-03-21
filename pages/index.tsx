@@ -7,7 +7,7 @@ import { useState } from 'react'
 
 export default function Home() {
   const [cityInput, setCityInput] = useState("")
-  console.log(cityInput)
+
   return (
     <div
       style={{
