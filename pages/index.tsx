@@ -4,9 +4,27 @@ import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import { Paper, TextInput, Button, Text, Group } from '@mantine/core'
 import { useState } from 'react'
+import { ServerResponse } from 'http'
+// const supabase = createClient('https://ahefnrxrupduqwrwinft.supabase.co',
+//   process.env.REACT_APP_API_KEY)
 
 export default function Home() {
   const [cityInput, setCityInput] = useState("")
+
+  const [weahterData, setWeatherData] = useState<any>({})
+
+  const getWeatherData = async () => {
+    try {
+      const serverResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${process.env.REACT_APP_API_KEY}&units=imperial`)
+      const data = await serverResponse.json();
+      console.log(data)
+      setWeatherData(data)
+    }
+
+    catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div
@@ -38,7 +56,7 @@ export default function Home() {
             />
           </Group>
           <Group position="apart">
-            <Button variant="gradient" size="md">Get Current Weather</Button>
+            <Button variant="gradient" size="md" onClick={getWeatherData}>Get Current Weather</Button>
           </Group>
         </Paper>
       </div>
