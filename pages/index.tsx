@@ -5,8 +5,7 @@ import styles from '@/styles/Home.module.css'
 import { Paper, TextInput, Button, Text, Group } from '@mantine/core'
 import { useState } from 'react'
 import { ServerResponse } from 'http'
-// const supabase = createClient('https://ahefnrxrupduqwrwinft.supabase.co',
-//   process.env.REACT_APP_API_KEY)
+
 
 export default function Home() {
   const [cityInput, setCityInput] = useState("")
