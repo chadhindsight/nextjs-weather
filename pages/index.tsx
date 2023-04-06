@@ -2,15 +2,14 @@ import { Paper, TextInput, Button, Text, Group } from '@mantine/core'
 import { useState } from 'react'
 
 
-export default function Home() {
-  const keyTing = '18436a5aee03555399b6774854293b06'
+const key = process.env.NEXT_PUBLIC_API
 
+export default function Home() {
   const [cityInput, setCityInput] = useState("")
   const [weahterData, setWeatherData] = useState<any>({})
-
   const getWeatherData = async () => {
     try {
-      const serverResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${keyTing}&units=imperial`)
+      const serverResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${key}&units=imperial`)
       const data = await serverResponse.json();
       console.log(data)
       setWeatherData(data)
