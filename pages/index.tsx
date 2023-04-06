@@ -8,6 +8,7 @@ const key = process.env.NEXT_PUBLIC_API
 export default function Home() {
   const [cityInput, setCityInput] = useState("")
   const [weahterData, setWeatherData] = useState<any>({})
+
   const getWeatherData = async () => {
     try {
       const serverResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${key}&units=imperial`)
