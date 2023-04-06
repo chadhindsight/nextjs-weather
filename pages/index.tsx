@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Paper, TextInput, Button, Text, Group } from '@mantine/core'
 import { useState } from 'react'
 
@@ -12,6 +13,7 @@ export default function Home() {
       const serverResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${key}&units=imperial`)
       const data = await serverResponse.json();
       console.log(data)
+      setCityInput("")
       setWeatherData(data)
     }
 
@@ -21,14 +23,14 @@ export default function Home() {
   }
 
   return (
-    <div
+    <main
       style={{
         position: 'static',
         height: '100vh',
         backgroundImage: "url('https://littlevisuals.co/images/atlantic_ridge.jpg')"
       }}
     >
-      <div
+      <section
         style={{
           position: 'absolute',
           left: '50%',
@@ -47,13 +49,35 @@ export default function Home() {
               label='City Name'
               placeholder='ex: San Diego'
               onChange={(e) => setCityInput(e.target.value)}
+              value={cityInput}
             />
           </Group>
           <Group position='apart'>
             <Button variant='gradient' size='md' onClick={getWeatherData}>Get Current Weather</Button>
           </Group>
+          {!Object.keys(weahterData).length ?
+            null :
+            <>
+              <Group position='left'>
+                <Text>
+                  {weahterData.name}
+                </Text>
+              </Group>
+              <Group position='left'>
+                <img
+                  src={`https://openweathermap.org/img/wn/${weahterData.weather[0].icon}@4x.png`}
+                  width="100px"
+                  height="100px"
+                  alt='Matching weather icon'
+                />
+                <Text size='lg' weight={500}>
+                  It is currently {weahterData.main.temp} &deg;F
+                </Text>
+              </Group>
+            </>
+          }
         </Paper>
-      </div>
-    </div >
+      </section>
+    </main>
   )
 }
