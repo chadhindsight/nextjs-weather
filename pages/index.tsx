@@ -12,7 +12,6 @@ export default function Home() {
     try {
       const serverResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${key}&units=imperial`)
       const data = await serverResponse.json();
-      console.log(data)
       setCityInput("")
       setWeatherData(data)
     }
